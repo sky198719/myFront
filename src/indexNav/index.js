@@ -29,15 +29,18 @@ export default class Indexnav extends React.Component{
 					"id" : "ui"
 				}
 			],
-			currentPage: $('.mainCon').attr('id'),
+			currentPage: '',
 		}
 	}
 	componentDidMount(){
 		const time = 1500
-		let count = -0.1
+		let count = 0
 		$.each($('.indexNav').find('li'),function(){
 			count += 0.1;
-			$(this).animate({'margin-left':'0'},count * time)
+			$(this).animate({'margin-left':'15px'},count * time)
+		})
+		this.setState({
+			currentPage : $('.mainCon').attr('id')
 		})
 	}
 	handleClick(page){
